@@ -14,35 +14,57 @@
                 <div class="right">
                     <p id="month">january</p>
                     <p id="year">2020</p>
-                </div>
+                </div> 
+                <div class="clock" id="clock"></div>
+            
             </div>
-           <!-- <div class="hours">
-                <p id="hours">1pm</p>
-             <p id="minutes">10</p>
-                <p id="seconds">14</p> 
-            </div>-->  
+           
+        </div>
         </div>
         <script>
+
+            //the Time
+
+            
+             const clockElement = document.getElementById("clock")
+            
+
+           function updateClock(){
+           
+           
+            const now = new Date();
+
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+            clockElement.textContent = formattedTime;
+            }
+            setInterval(updateClock, 1000);
+
+            //The Date
+
+            updateClock()
 
             const date = document.getElementById("date");
             const day = document.getElementById("day");
             const month = document.getElementById("month");
             const year = document.getElementById("year");
-            //const hours = document.getElementById("hours")
-            //const minutes = document.getElementById("minutes")
-           // const seconds = document.getElementById("seconds")
-
             const today = new Date();
 
-
             const weekDays = ['Sunday', 'Monday', 'Tuesday', 'wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const allMonth = ['January', 'February', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const allMonth = ['January', 'February', 'March', 'April','may', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             
 
             date.innerHTML = (today.getDate()<10?'0':'') + today.getDate();
             day.innerHTML = weekDays[today.getDay()];
             month.innerHTML = allMonth[today.getMonth()];
             year.innerHTML = today.getFullYear();
+
+            
+
            // hours.innerHTML = today.getHours();
           //  minutes.innerHTML = today.getMinutes(); 
            // seconds.innserHTML = today.getSeconds();

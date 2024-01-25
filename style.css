@@ -43,6 +43,8 @@
     font-size: 100px;
     line-height: 90px;
 }
-.hours{
-    color: #fff;
+.clock{
+    color: #110d0d;
+    font-size: 30px;
+    
 }
